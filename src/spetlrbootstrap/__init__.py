@@ -1,3 +1,3 @@
 import importlib.metadata
 
-__version__ = importlib.metadata.version("spetlr-boot")
+__version__ = importlib.metadata.version("spetlrbootstrap")
