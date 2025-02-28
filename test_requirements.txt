@@ -1,0 +1,6 @@
+packaging
+pytest
+black
+isort
+flake8
+gitpython
