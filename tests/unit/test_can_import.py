@@ -1,8 +1,10 @@
 import unittest
 
-import spetlrboot
+import spetlrbootstrap
 
 
 class TestCanImport(unittest.TestCase):
     def test_import(self):
-        print(f"Seems we can import the spetlrboot module {spetlrboot.__version__}")
+        print(
+            f"Seems we can import the spetlrboot module {spetlrbootstrap.__version__}"
+        )

@@ -5,8 +5,8 @@ from pathlib import Path
 
 from pip._internal.cli.main import main as pip_main
 
-from spetlrboot.arguments import DEPENDENCIES, REQUIREMENTS, unpack_argv
-from spetlrboot.libraries import keep_new, pipfreeze2dict
+from spetlrbootstrap.arguments import DEPENDENCIES, REQUIREMENTS, unpack_argv
+from spetlrbootstrap.libraries import keep_new, pipfreeze2dict
 
 
 def download():
