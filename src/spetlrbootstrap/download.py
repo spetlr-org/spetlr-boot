@@ -6,7 +6,7 @@ from pathlib import Path
 from pip._internal.cli.main import main as pip_main
 
 from spetlrbootstrap.arguments import DEPENDENCIES, REQUIREMENTS, unpack_argv
-from spetlrbootstrap.libraries import keep_new, pipfreeze2dict
+from spetlrbootstrap.libraries import list_all_libs
 
 
 def download():
@@ -28,7 +28,7 @@ def download():
 
     print("Now establishing baseline packages that are already installed.")
     print("The will not be downloaded in dependencies folder.")
-    default_libs = pipfreeze2dict()
+    default_libs = list_all_libs()
 
     print("Ensuring download destination exists...")
     Path(dependencies).mkdir(parents=True, exist_ok=True)
@@ -40,23 +40,20 @@ def download():
 
     pip_main(["install", "--no-deps"] + requirements)
 
-    all_libs = pipfreeze2dict()
-    lib_dependencies = keep_new(all_libs, default_libs)
+    all_libs = list_all_libs()
+    lib_dependencies = all_libs - default_libs
 
     print("Identified packages for download:")
-    lib_specs = []
-    for lib, version in lib_dependencies.items():
-        spec = f"{lib}=={version}"
-        print("  ", spec)
-        lib_specs.append(spec)
+    for lib in lib_dependencies:
+        print("  ", lib)
 
-    if not lib_specs:
+    if not lib_dependencies:
         print("ERROR: No packages for download.")
         sys.exit(1)
 
     print("Now downloading all from pypi...")
 
     os.chdir(dependencies)
-    pip_main(["download"] + lib_specs)
+    pip_main(["download"] + list(lib_dependencies))
 
     print("All done.")
