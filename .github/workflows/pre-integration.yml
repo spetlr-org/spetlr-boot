@@ -31,9 +31,9 @@ jobs:
         run: |
           pip install flake8
           flake8 .
-#
-#      - name: Install test requirements
-#        run: pip install -r test_requirements.txt
+
+      - name: Install test requirements
+        run: pip install -r test_requirements.txt
 
       - name: Install the package
         run: pip install -e .
