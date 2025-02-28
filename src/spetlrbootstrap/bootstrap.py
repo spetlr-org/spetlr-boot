@@ -3,8 +3,8 @@ import importlib
 
 from pip._internal.cli.main import main as pip_main
 
-from spetlrboot.arguments import DEPENDENCIES, ENTRY_POINT, LIBRARY, unpack_argv
-from spetlrboot.introspect_entrypoint import prepare_keyword_arguments
+from spetlrbootstrap.arguments import DEPENDENCIES, ENTRY_POINT, LIBRARY, unpack_argv
+from spetlrbootstrap.introspect_entrypoint import prepare_keyword_arguments
 
 
 def bootstrap():
@@ -18,7 +18,7 @@ def bootstrap():
     ```json
         "python_wheel_task": {
             "package_name": "spetlr-boot",
-            "entry_point": "spetlrboot",
+            "entry_point": "spetlrbootstrap",
             "named_parameters": {
                 "library": "/Volumes/path/to/my/library.whl",
                 "dependencies": "/Volumes/path/to/my/dependencies/*.whl",

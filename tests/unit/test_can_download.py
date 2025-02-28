@@ -2,7 +2,7 @@ import json
 import sys
 import unittest
 
-from spetlrboot.download import download
+from spetlrbootstrap.download import download
 
 
 class TestDownload(unittest.TestCase):
