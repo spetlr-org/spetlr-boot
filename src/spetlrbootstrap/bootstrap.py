@@ -17,7 +17,7 @@ def bootstrap():
     then specify your task as follows:
     ```json
         "python_wheel_task": {
-            "package_name": "spetlr-boot",
+            "package_name": "spetlrbootstrap",
             "entry_point": "spetlrbootstrap",
             "named_parameters": {
                 "library": "/Volumes/path/to/my/library.whl",
